@@ -9,7 +9,7 @@ always point to the same action independently from the requested format.
 
 USAGE
 
-Use Rack::AbstractFormat
+use Rack::AbstractFormat
 run app
 
 The request:
@@ -20,3 +20,9 @@ will become:
 
   GET /path/resource
   env['request.format'] #=> 'xml'
+
+TIP
+
+To make sure there is always an extension, as well as to retrieve format
+information from the request's Accept header, use together with rack-contrib's
+Rack::AcceptFormat middleware.
