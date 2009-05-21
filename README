@@ -1,0 +1,22 @@
+SUMMARY
+
+Strips the extension from the requested path (env['PATH_INFO']) and stores it
+into env['request.format']. This allows dealing with path information
+separately from format information, which are often different concerns.
+
+This is especially useful when dealing with routes as it allows a resource to
+always point to the same action independently from the requested format.
+
+USAGE
+
+Use Rack::AbstractFormat
+run app
+
+The request:
+
+  GET /path/resource.xml
+
+will become:
+
+  GET /path/resource
+  env['request.format'] #=> 'xml'
