@@ -1,5 +1,5 @@
 # run me with:
-#   $rackup examples/app.rb
+#   $rackup examples/app.ru -p 3000
 #
 require 'rubygems'
 require 'rack'
@@ -11,7 +11,7 @@ class App
       env['PATH_INFO']      #=> #{env['PATH_INFO'].inspect}
       env['request.format'] #=> #{env['request.format'].inspect}
     TXT
-    [200, {'Content-Type' => 'text/plain'}, [body]] 
+    [200, {'Content-Type' => 'text/plain'}, [body]]
   end
 end
 
