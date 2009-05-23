@@ -9,6 +9,8 @@ always point to the same action independently from the requested format.
 
 USAGE
 
+require 'rack/abstract_format'
+
 use Rack::AbstractFormat
 run app
 
