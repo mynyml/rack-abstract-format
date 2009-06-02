@@ -4,6 +4,7 @@ require 'rubygems'
 require 'rack'
 begin
   require 'ruby-debug'
+  require 'phocus/test_unit'
 rescue LoadError, RuntimeError
 end
 

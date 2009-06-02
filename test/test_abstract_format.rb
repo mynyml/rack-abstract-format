@@ -8,9 +8,9 @@ App = Rack::Builder.new {
 
 class AbstractFormatTest < Test::Unit::TestCase
 
-  def get(path)
-    env = Rack::MockRequest.env_for(path)
-    App.call(env).last
+  def get(path, opts={})
+    env = Rack::MockRequest.env_for(path, opts)
+    App.call(env)
     env
   end
 
@@ -24,8 +24,8 @@ class AbstractFormatTest < Test::Unit::TestCase
     assert_equal '/path.to/resource', env['PATH_INFO']
   end
 
-  test "stores format in environment" do
-    env = get('/path.to/resource.xml')
-    assert_equal 'xml', env['request.format']
+  test "prepends requested media type to Accept header" do
+    env = get('/path/resource.html', 'Accept' => 'application/xml')
+    assert_equal 'text/html,application/xml' , env['Accept']
   end
 end
