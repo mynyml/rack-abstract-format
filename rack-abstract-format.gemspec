@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification 
 name: rack-abstract-format
 version: !ruby/object:Gem::Version 
-  version: "0.9"
+  version: 0.9.4
 platform: ruby
 authors: 
 - Martin Aumont
@@ -9,7 +9,7 @@ autorequire:
 bindir: bin
 cert_chain: []
 
-date: 2009-05-21 00:00:00 -04:00
+date: 2009-06-02 00:00:00 -04:00
 default_executable: 
 dependencies: []
 
@@ -27,8 +27,8 @@ files:
 - test/test_abstract_format.rb
 - test/test_helper.rb
 - examples
-- examples/app.rb
-- simple_router.gemspec
+- examples/app.ru
+- rack-abstract-format.gemspec
 - lib
 - lib/rack
 - lib/rack/abstract_format.rb
