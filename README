@@ -1,14 +1,16 @@
-SUMMARY
+===== Summary
 
-Strips the extension from the requested path (env['PATH_INFO']) and stores it
-into env['request.format']. This allows dealing with path information
-separately from format information, which are often different concerns.
+Strips the extension from the requested path (env['PATH_INFO']), casts it to
+media type, and prepends it to env['HTTP_ACCEPT']. This allows dealing with path
+information separately from format information, which are often different
+concerns.
 
 This is especially useful when dealing with routes as it allows a resource to
 always point to the same action independently from the requested format.
 
-USAGE
+===== Usage
 
+require 'rack'
 require 'rack/abstract_format'
 
 use Rack::AbstractFormat
@@ -17,14 +19,9 @@ run app
 The request:
 
   GET /path/resource.xml
+  Accept: text/html
 
 will become:
 
   GET /path/resource
-  env['request.format'] #=> 'xml'
-
-TIP
-
-To make sure there is always an extension, as well as to retrieve format
-information from the request's Accept header, use together with rack-contrib's
-Rack::AcceptFormat middleware.
+  env['HTTP_ACCEPT'] #=> 'application/xml,text/html'
