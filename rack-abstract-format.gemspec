@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification 
 name: rack-abstract-format
 version: !ruby/object:Gem::Version 
-  version: 0.9.4
+  version: 0.9.6
 platform: ruby
 authors: 
 - Martin Aumont
