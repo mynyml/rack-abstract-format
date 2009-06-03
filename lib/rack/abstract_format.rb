@@ -10,11 +10,16 @@ module Rack
     def call(env)
       path = Pathname(env['PATH_INFO'])
       env['PATH_INFO'] = path.to_s.sub(/#{path.extname}$/,'')
-      env['Accept'] = concat(env['Accept'], Rack::Mime.mime_type(path.extname))
+      env['HTTP_ACCEPT'] = concat(env['HTTP_ACCEPT'], Rack::Mime.mime_type(path.extname))
       @app.call(env)
     end
 
     private
+      # TODO remove duplicates?
+      #
+      #   # actual example; firefox request at /foo.xml:
+      #   ["application/xml", "text/html", "application/xhtml+xml", "application/xml;q=0.9", "*/*;q=0.8"]
+      #
       def concat(accept, type)
         (accept || '').split(',').unshift(type).join(',')
       end

@@ -25,7 +25,7 @@ class AbstractFormatTest < Test::Unit::TestCase
   end
 
   test "prepends requested media type to Accept header" do
-    env = get('/path/resource.html', 'Accept' => 'application/xml')
-    assert_equal 'text/html,application/xml' , env['Accept']
+    env = get('/path/resource.html', 'HTTP_ACCEPT' => 'application/xml')
+    assert_equal 'text/html,application/xml' , env['HTTP_ACCEPT']
   end
 end
