@@ -1,6 +1,12 @@
 # run me with:
 #   $rackup examples/app.ru -p 3000
 #
+# and try different url extensions:
+#		localhost:3000/foo.html
+#		localhost:3000/foo.xml
+#		localhost:3000/foo.txt
+#		...
+#
 require 'pathname'
 require 'rubygems'
 require 'rack'
