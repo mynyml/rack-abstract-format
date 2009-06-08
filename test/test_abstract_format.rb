@@ -28,4 +28,9 @@ class AbstractFormatTest < Test::Unit::TestCase
     env = get('/path/resource.html', 'HTTP_ACCEPT' => 'application/xml')
     assert_equal 'text/html,application/xml' , env['HTTP_ACCEPT']
   end
+
+  test "url without extension" do
+    env = get('/path/resource', 'HTTP_ACCEPT' => 'text/html')
+    assert_equal 'text/html' , env['HTTP_ACCEPT']
+  end
 end
