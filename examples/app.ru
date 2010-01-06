@@ -8,11 +8,10 @@
 #		...
 #
 require 'pathname'
-require 'rubygems'
 require 'rack'
 
-root = Pathname(__FILE__).dirname.parent.expand_path
-require root + 'lib/rack/abstract_format'
+$:.unshift Pathname(__FILE__).dirname.parent + 'lib'
+require 'rack/abstract_format'
 
 class App
   def call(env)
@@ -26,3 +25,4 @@ end
 
 use Rack::AbstractFormat
 run App.new
+
