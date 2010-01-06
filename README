@@ -6,7 +6,7 @@ information separately from format information, which are often different
 concerns.
 
 This is especially useful when dealing with routes as it allows a resource to
-always point to the same action independently from the requested format.
+always point to the same action independently of the requested format.
 
 ===== Usage
 
