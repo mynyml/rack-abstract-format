@@ -15,11 +15,6 @@ module Rack
     end
 
     private
-      # TODO remove duplicates?
-      #
-      #   # actual example; firefox request at /foo.xml:
-      #   ["application/xml", "text/html", "application/xhtml+xml", "application/xml;q=0.9", "*/*;q=0.8"]
-      #
       def concat(accept, type)
         (accept || '').split(',').unshift(type).compact.join(',')
       end
