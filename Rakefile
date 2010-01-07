@@ -23,5 +23,3 @@ task(:yardoc) do
   YARD::CLI::Yardoc.run *(options + files)
 end
 
-
-
