@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name                = 'rack-abstract-format'
-  s.version             = "0.9.8"
+  s.version             = "0.9.9"
   s.summary             = "Rack middleware that abstracts format (extension) away from the path (into env)"
   s.description         = "Rack middleware that abstracts format (extension) away from the path (into env)."
   s.author              = "mynyml"
