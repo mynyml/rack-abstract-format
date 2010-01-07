@@ -6,5 +6,6 @@ Rakefile
 examples/app.ru
 lib/rack/abstract_format.rb
 rack-abstract-format.gemspec
+specs.watchr
 test/test_abstract_format.rb
 test/test_helper.rb
