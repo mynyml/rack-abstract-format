@@ -35,11 +35,21 @@ format that should be assumed when none is specified on the URL:
     #=> GET /path/resource      # requested
     #=> GET /path/resource.html # assumed
 
+Tip
+---
+
+The abstracted media type can then be easily retrieved with the
+[Rack::AcceptMediaTypes][1] convenience middleware, which parses `env['HTTP_ACCEPT']`.
+
+    request.accept_media_types          #=> ['application/xml', 'text/html']
+    request.accept_media_types.prefered #=>  'application/xml'
+
 See Also
 --------
 
-* [simple_router][1]
-* [rack-respond_to][2]
+* [rack-accept-media-types][1]
+* [simple_router][2]
+* [rack-respond_to][3]
 
 Links
 -----
@@ -50,6 +60,7 @@ Links
 * bugs: <http://github.com/mynyml/rack-abstract-format/issues>
 
 
-[1]: http://github.com/mynyml/simple_router
-[2]: http://github.com/mynyml/rack-respond_to
+[1]: http://github.com/mynyml/rack-accept-media-types
+[2]: http://github.com/mynyml/simple_router
+[3]: http://github.com/mynyml/rack-respond_to
 
