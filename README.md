@@ -9,6 +9,11 @@ concerns.
 This is especially useful when dealing with routes as it allows a resource to
 always point to the same action independently of the requested format.
 
+Install
+-------
+
+  gem install rack-abstract-format
+
 Usage
 -----
 
