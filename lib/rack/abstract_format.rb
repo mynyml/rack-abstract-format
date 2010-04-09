@@ -9,7 +9,7 @@ module Rack
 
     def call(env)
       path = Pathname(env['PATH_INFO'])
-      env['PATH_INFO'] = path.to_s.sub(/#{path.extname}$/,'')
+      env['PATH_INFO'] = path.to_s.sub(/#{path.extname}$/,'') if Rack::Mime::MIME_TYPES.include?(path.extname)
       env['HTTP_ACCEPT'] = concat(env['HTTP_ACCEPT'], Rack::Mime.mime_type(path.extname, @default))
       @app.call(env)
     end

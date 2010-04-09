@@ -28,6 +28,10 @@ assert { 'text/html,application/xml' == env['HTTP_ACCEPT'] }
 env = get('/path/resource', 'HTTP_ACCEPT' => 'text/html')
 assert { 'text/html' == env['HTTP_ACCEPT'] }
 
+# test: doesn't strip unrecognized extensions
+env = get('/path/resource.123')
+assert { '/path/resource.123' == env['PATH_INFO'] }
+
 # test: default format
 @app = Rack::Builder.new {
   use Rack::Lint
